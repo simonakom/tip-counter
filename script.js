@@ -2,7 +2,7 @@ const billAmount = document.getElementById("bill");
 const tipPercentage = document.getElementById("tip");
 const selectedTip = document.getElementById("tip").value;
 const calculate = document.getElementById("calculate");
-const submit = document.querySelector(".submitBtn");
+const submit = document.getElementById("submit");
 const finalTip = document.getElementById("finalTip");
 const total = document.getElementById("total");
 
@@ -29,20 +29,20 @@ event.preventDefault();
     finalTip.innerHTML = (`${tipAmount} $`);
     total.innerHTML = (`${totalAmount} $`);
 
-// Validation:
-if (isNaN(bill) || !bill || bill <= 0) {
-    note.style.display = "block";
-    note.innerText = 'Please choose a bill amount!';
-    return;
-} else if (!tip) {
-    note.style.display = "block";
-    note.innerText = 'Please choose a tip!';
-    return;
-} else {
-    result.style.display = "block";
-    note.style.display = "none"; 
-}
-showImage();
+    // Validation:
+    if (isNaN(bill) || !bill || bill <= 0) {
+        note.style.display = "block";
+        note.innerText = 'Please enter a bill amount!';
+        return;
+    } else if (!tip) {
+        note.style.display = "block";
+        note.innerText = 'Please choose a tip!';
+        return;
+    } else {
+        result.style.display = "block";
+        note.style.display = "none"; 
+    }
+    showImage();
 });
 
 function ShowTextArea() {
@@ -59,8 +59,8 @@ ShowTextArea();
 
 function refreshPage() {
     location.reload();
-    }
-    submit.addEventListener('click', refreshPage);
+}
+submit.addEventListener('click', refreshPage);
 
 function showImage() {
 if (selectedTip !== "") {
